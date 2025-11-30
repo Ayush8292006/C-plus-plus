@@ -9,6 +9,33 @@ class Animal {
     int age;
     string name;
 
+    // constructor
+    Animal(){
+        this->weight=0;
+        this->age=0;
+        this->name="";
+        cout<<"Construction called"<<endl;
+    }
+
+    // parameterised constructor
+    Animal(int age){
+        this->age=age;
+        cout<<"Parameterised constructor"<<endl;
+    }
+
+    // copy constructor
+    Animal(Animal &obj){
+        this->age=obj.age;
+        this->weight=obj.weight;
+        this->name=obj.name;
+
+        cout<<"I m inside copy constructor"<<endl;
+    }
+
+    ~Animal(){
+        cout<<"I m inside destructor"<<endl;
+    }
+
     // behaviour
     void eat(){
         cout<<"eating "<<endl;
@@ -22,8 +49,8 @@ class Animal {
         return weight;
     }
 
-    void setWeight(int w){
-        weight = w;
+    void setWeight(int weight){
+       this-> weight = weight;
     }
 };
 
@@ -46,15 +73,34 @@ int main() {
 
 
     // dynamic memory 
-    Animal* mukesh = new Animal;
-    (*mukesh).age = 14;
-    (*mukesh).name = "Mukesh Kumar";
+    // Animal* mukesh = new Animal;
+    // (*mukesh).age = 14;
+    // (*mukesh).name = "Mukesh Kumar";
 
-    // alternate
-    mukesh->age = 15;
-    mukesh->name = "Mukesh Yadav";
+    // // alternate
+    // mukesh->age = 15;
+    // mukesh->name = "Mukesh Yadav";
 
-    mukesh->eat();
+    // mukesh->eat();
+    // mukesh->sleep();
+
+    // Animal a(10);  // for parameterised constructor
+
+    // // object copy
+    // Animal c = a;   // for copy constructor
+    // Animal d(b);
+
+
+    Animal a;
+    a.age = 5;
+
+
+    Animal* b = new Animal();
+    b->age =12;
+
+    // manually call 
+    delete b;
+
 
 
 
